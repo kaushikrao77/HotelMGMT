@@ -1,0 +1,83 @@
+*{ background-color:  #eee; text-align: center;}
+.head{ margin-top: 60px;}
+
+.parent{
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  grid-gap: 1em;
+  margin: 1em;
+  padding: 1em;
+}
+
+.img{
+  background-image: url("./aranzacja-bezowo-brazowej-recepcji-naturstone-ceramika-paradyz.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.name{
+  display: flex;
+  justify-content:  center;
+  align-items:  center;
+  margin-top: 15px;
+  padding: 0.8em;
+}
+.name div{ padding: 0.3em; }
+
+.name input{
+  padding: 1em;
+  width: 200px;
+  height: 20px;
+}
+input:hover{ background-color: #C3E4ED;}
+.rooms select:hover{background-color: #C3E4ED;}
+
+.email { padding: 0.3em;}
+.email input{
+  padding: 1em;
+  width: 200px;
+  height: 20px;
+}
+
+.rooms{
+  padding: 1em;
+}
+.rooms select{
+  padding: 0.6em;
+  margin: 0.5em;
+}
+
+.dates{
+  padding: 1em;
+}
+.dates select{
+  padding: 0.6em;
+  margin: 0.4em;
+}
+label{
+  font-size: 19px;
+  font-weight: bold;
+  padding: 0.8em;
+}
+
+button{
+  outline: none;
+  margin: 0.6em;
+  padding: 0.6em;
+  width: 150px;
+  background-color: #0099CC;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 2px #999;
+  color: white;
+
+}
+
+ button:hover{
+  background-color: #00B2EE;
+}
+button:active {
+  background-color: #00B2EE	;
+  box-shadow: 0 2px #666;
+  transform: translateY(1px);
+}

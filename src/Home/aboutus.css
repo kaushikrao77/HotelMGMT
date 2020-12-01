@@ -1,0 +1,32 @@
+.aboutus{
+	display: grid;
+	grid-template-columns: auto;
+	justify-content: center;
+	margin: 1em;
+}
+
+
+
+.aboutus_about {
+
+	font-family:  sans-serif;
+	padding: 1em;
+	font-size: 23px;
+
+	text-decoration: none solid rgb(89, 89, 96);
+	text-align: center;
+
+
+}
+
+.span {
+	font-family: sans-serif;
+	font-size: 27px;
+	font-weight: 700;
+	letter-spacing: 1px;
+	line-height: 21px;
+	text-decoration: none solid rgb(223, 169, 116);
+	text-transform: uppercase;
+	text-align: center;
+
+}

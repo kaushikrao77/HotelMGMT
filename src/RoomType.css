@@ -1,0 +1,59 @@
+
+.roomtype__container {
+	width: 390px;
+	height: 600px;
+	padding: 1em;
+	text-align: center;
+
+}
+.roomtype__img {
+	object-fit: cover;
+	width: 100%;
+	height: 230px;
+}
+.roomtype__details {
+	font-size: 18px;
+	line-height: 24px;
+	text-decoration: none solid rgb(33, 37, 41);
+	height: 300px;
+	width: 100%;
+
+}
+.roomtype__price {
+	display: flex;
+	align-items: baseline;
+	justify-content: center;
+}
+
+.roomtype__details h4 {
+	color: #19191a;
+	font-family: Lora, serif;
+	font-size: 22px;
+	line-height: 28px;
+	text-decoration: none solid rgb(25, 25, 26);
+	text-align: center;
+	margin-bottom: 10px;
+}
+.roomtype__details h3 {
+	font-family: Lora, serif;
+	font-size: 35px;
+	line-height: 70px;
+	text-align: center;
+	color: #dfa974;
+	margin-bottom: 20px
+}
+.alt{
+	visibility: hidden;
+}
+.roomtype__container:hover .alt{
+	visibility: visible;
+	transition: all 0.1s ease 0.1s;
+}
+.book a{
+	text-decoration: none;
+	color: black;
+}
+.book a:hover{
+	color: blue;
+	transition: all 0.3s ease 0s;
+}

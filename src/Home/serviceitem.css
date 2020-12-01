@@ -1,0 +1,31 @@
+.service_item {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	width: 180px;
+	height: 130px;
+	padding: 30px 35px 18px 35px;
+}
+.service_item {
+	font-family: Cabin, sans-serif;
+	font-size: 16px;
+	line-height: 24px;
+	text-decoration: none solid rgb(33, 37, 41);
+	text-align: center;
+}
+.heading {
+	font-family: lora, serif;
+	font-size: 20px;
+	line-height: 26px;
+	text-decoration: none solid rgb(237, 237, 237);
+	text-align: center;
+	text-transform: capitalize;
+	
+}
+.service_item_img {
+	width: 75px;
+	height: 75px;
+	color: #e6bc93;
+	margin-bottom: 15px;
+}
