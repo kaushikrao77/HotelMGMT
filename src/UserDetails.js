@@ -1,81 +1,136 @@
-import React from 'react'
-import './Projindex.css'
-import './mycss.css'
-import {Link} from 'react-router-dom'
+import React, { useState } from "react";
+import "./Projindex.css";
+import "./mycss.css";
+import { Link } from "react-router-dom";
+import { useForm } from "react-hook-form";
+import Footer from "./Footer";
 
-function UserDetails()
-{
-  return(
+function UserDetails() {
+  const { register, handleSubmit, watch, errors } = useForm();
+  const [formErr, setFormErr] = useState("");
+  const [notAvail, setNotAvail] = useState("");
+  const [orderId, setOrderId] = useState("");
+
+  function isDateBefore(date1, date2) {
+    return (
+      new Date(new Date(date1).toDateString()) <
+      new Date(new Date(date2).toDateString())
+    );
+  }
+
+  const onSubmit = (data) => {
+    setOrderId("");
+    setNotAvail("");
+
+    if (isDateBefore(data.checkOutDate, data.checkInDate)) {
+      setNotAvail("Checkout date not valid");
+      return;
+    }
+
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+    if (data.checkInDate) var urlencoded = new URLSearchParams();
+    urlencoded.append("firstName", data.firstName);
+    urlencoded.append("lastName", data.lastName);
+    urlencoded.append("email", data.email);
+    urlencoded.append("checkInDate", data.checkInDate);
+    urlencoded.append("checkOutDate", data.checkOutDate);
+    urlencoded.append("roomId", data.roomId);
+
+    var requestOptions = {
+      method: "POST",
+      headers: myHeaders,
+      body: urlencoded,
+      redirect: "follow",
+    };
+
+    fetch(`http://localhost:3001/`, requestOptions)
+      .then((response) => response.text())
+      .then((result) => {
+        // console.log(JSON.parse(result));
+        let result1 = JSON.parse(result);
+        if (result.roomFull) {
+          setNotAvail(`This room is not available on ${result1.dateRoomFull}`);
+        } else {
+          setOrderId(`Order Successful: Your Order ID is :${result1.orderId}`);
+        }
+      })
+      .catch((error) => console.log("error", error));
+  };
+  return (
     <>
+      <section className="head">
+        <h1>Thank You for choosing to stay at our hotel!</h1>
+        <h3>Please Enter your details.</h3>
+      </section>
 
-    <section className="head">
-    <h1>Thank You for choosing to stay at our hotel!</h1>
-    <h3>Please Enter your details.</h3>
-    </section>
+      <form className="parent" onSubmit={handleSubmit(onSubmit)}>
+        <div className="img"></div>
 
-    <div className="parent">
-
-    <div className="img"></div>
-
-    <div className="details">
-
-    <div className="name">
-    <div><input type="text" placeholder="First Name"></input></div>
-    <div><input type="text" placeholder="Last Name"></input></div>
-    </div>
-    <div className="email">
-      <input placeholder="Email Address"></input>
-    </div>
-    <div className="rooms">
-    <select>
-    <option>Premium King Room</option>
-    <option>Deluxe Room</option>
-    <option>Double Room</option>
-    <option>Luxury Room</option>
-    <option>Room With View</option>
-    <option>Small View</option>
-    </select>
-    </div>
-    <label>Check-in date.</label>
-    <div className="dates">
-    <select>
-    <option>01</option><option>02</option><option>03</option><option>04</option><option>05</option><option>06</option><option>07</option>
-    <option>08</option><option>09</option><option>10</option><option>11</option><option>12</option><option>13</option><option>14</option>
-    <option>15</option><option>16</option><option>17</option><option>18</option><option>19</option><option>20</option><option>21</option>
-    <option>22</option><option>23</option><option>24</option><option>25</option><option>26</option><option>27</option><option>28</option><option>29</option><option>30</option><option>31</option>
-    </select>
-    <select>
-    <option>01</option><option>02</option><option>03</option><option>04</option><option>05</option><option>06</option><option>07</option>
-    <option>08</option><option>09</option><option>10</option><option>11</option><option>12</option>
-    </select>
-    <select>
-    <option>2020</option>
-    </select>
-    </div>
-    <label>Check-out date.</label>
-    <div className="dates">
-    <select>
-    <option>01</option><option>02</option><option>03</option><option>04</option><option>05</option><option>06</option><option>07</option>
-    <option>08</option><option>09</option><option>10</option><option>11</option><option>12</option><option>13</option><option>14</option>
-    <option>15</option><option>16</option><option>17</option><option>18</option><option>19</option><option>20</option><option>21</option>
-    <option>22</option><option>23</option><option>24</option><option>25</option><option>26</option><option>27</option><option>28</option><option>29</option><option>30</option><option>31</option>
-    </select>
-    <select>
-    <option>01</option><option>02</option><option>03</option><option>04</option><option>05</option><option>06</option><option>07</option>
-    <option>08</option><option>09</option><option>10</option><option>11</option><option>12</option>
-    </select>
-    <select>
-    <option>2020</option>
-    </select>
-    </div>
-
-    <Link to="/availability"><button> Check Availability! </button></Link>
-
-    </div>
-    </div>
-
+        <div className="details">
+          <div className="name">
+            <div>
+              <input
+                name="firstName"
+                ref={register({ required: true })}
+                type="text"
+                placeholder="First Name"
+              ></input>
+              {errors.firstName && <span>This field is required</span>}
+            </div>
+            <div>
+              <input
+                name="lastName"
+                ref={register({ required: true })}
+                type="text"
+                placeholder="Last Name"
+              ></input>
+              {errors.lastName && <span>This field is required</span>}
+            </div>
+          </div>
+          <div className="email">
+            <input
+              name="email"
+              type="email"
+              placeholder="Email Address"
+              ref={register({ required: true })}
+            ></input>
+            {errors.email && <span>This field is required</span>}
+          </div>
+          <div className="rooms">
+            <select name="roomId" ref={register}>
+              <option value="1">Premium King Room</option>
+              <option value="2">Deluxe Room</option>
+              <option value="3">Double Room</option>
+              <option value="4">Luxury Room</option>
+              <option value="5">Room With View</option>
+              <option value="6">Small View</option>
+            </select>
+          </div>
+          <label>Check-in date.</label>
+          <input
+            ref={register({ required: true })}
+            name="checkInDate"
+            type="date"
+            className="dateInput"
+          />
+          {errors.checkInDate && <span>This field is required</span>}
+          <label>Check-out date.</label>
+          <input
+            ref={register({ required: true })}
+            name="checkOutDate"
+            type="date"
+            className="dateInput"
+          />
+          {errors.checkOutDate && <span>This field is required</span>}
+          <div className="notAvail">{notAvail}</div>
+          <button> Book </button>
+          <div className="orderId">{orderId}</div>
+        </div>
+      </form>
+      <Footer />
     </>
   );
 }
 
-export default UserDetails
+export default UserDetails;

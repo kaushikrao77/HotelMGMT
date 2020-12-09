@@ -1,83 +1,112 @@
-*{ background-color:  #eee; text-align: center;}
-.head{ margin-top: 60px;}
+* {
+  background-color: #eee;
+  text-align: center;
+}
+.head {
+  margin-top: 60px;
+}
 
-.parent{
+.parent {
   display: grid;
-  grid-template-columns: repeat(2,1fr);
+  grid-template-columns: repeat(2, 1fr);
   grid-gap: 1em;
   margin: 1em;
   padding: 1em;
 }
 
-.img{
+.img {
   background-image: url("./aranzacja-bezowo-brazowej-recepcji-naturstone-ceramika-paradyz.jpg");
   background-repeat: no-repeat;
   background-size: cover;
 }
 
-.name{
+.name {
   display: flex;
-  justify-content:  center;
-  align-items:  center;
+  justify-content: center;
+  align-items: center;
   margin-top: 15px;
   padding: 0.8em;
 }
-.name div{ padding: 0.3em; }
+.name div {
+  padding: 0.3em;
+}
 
-.name input{
+.name input {
   padding: 1em;
   width: 200px;
   height: 20px;
 }
-input:hover{ background-color: #C3E4ED;}
-.rooms select:hover{background-color: #C3E4ED;}
+input:hover {
+  background-color: #c3e4ed;
+}
+.rooms select:hover {
+  background-color: #c3e4ed;
+}
 
-.email { padding: 0.3em;}
-.email input{
+.email {
+  padding: 0.3em;
+}
+.email input {
   padding: 1em;
   width: 200px;
   height: 20px;
 }
 
-.rooms{
+.rooms {
   padding: 1em;
 }
-.rooms select{
+.rooms select {
   padding: 0.6em;
   margin: 0.5em;
 }
 
-.dates{
+.dates {
   padding: 1em;
 }
-.dates select{
+.dates select {
   padding: 0.6em;
   margin: 0.4em;
 }
-label{
+.dateInput {
+  display: block;
+  margin: 10px auto 20px auto;
+}
+label {
   font-size: 19px;
   font-weight: bold;
-  padding: 0.8em;
+  /* padding: 0.8em; */
 }
 
-button{
+button {
   outline: none;
   margin: 0.6em;
   padding: 0.6em;
   width: 150px;
-  background-color: #0099CC;
+  background-color: #0099cc;
   border: none;
   border-radius: 10px;
   box-shadow: 0 2px #999;
   color: white;
-
 }
 
- button:hover{
-  background-color: #00B2EE;
+button:hover {
+  background-color: #00b2ee;
 }
 button:active {
-  background-color: #00B2EE	;
+  background-color: #00b2ee;
   box-shadow: 0 2px #666;
   transform: translateY(1px);
+}
+.notAvail {
+  color: red;
+  text-align: center;
+}
+.orderId {
+  text-align: center;
+  color: green;
+}
+form span {
+  display: block;
+  font-size: 13px;
+  color: red;
 }

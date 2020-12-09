@@ -1,17 +1,29 @@
-import React from 'react'
-import './footer.css'
+import React from "react";
+import { Router } from "react-router-dom";
+import "./footer.css";
+import { Link } from "react-router-dom";
 
-function Footer()
-{
-  return(
+function Footer() {
+  return (
     <div className="footer">
       <div className="container">
-        <div className="col"></div>
-        <div className="col"></div>
-        <div className="col"></div>
+        <div className="col dsce">&copy;DSCE ALL RIGHTS RESERVED</div>
+
+        <ul className="col list">
+          <Link to="/">
+            <li className="listitems">Home</li>
+          </Link>
+          <Link to="/room">
+            <li className="listitems">Check Prices</li>
+          </Link>
+          <Link to="/userdetails">
+            <li className="listitems">Book Rooms</li>
+          </Link>
+        </ul>
+
+        <div className="col contact">contact info</div>
       </div>
-      <div className="row"><h6>&copy;</h6></div>
     </div>
-  )
+  );
 }
-export default Footer
+export default Footer;
