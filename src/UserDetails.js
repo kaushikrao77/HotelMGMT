@@ -49,7 +49,7 @@ function UserDetails() {
       .then((result) => {
         // console.log(JSON.parse(result));
         let result1 = JSON.parse(result);
-        if (result.roomFull) {
+        if (result1.roomFull) {
           setNotAvail(`This room is not available on ${result1.dateRoomFull}`);
         } else {
           setOrderId(`Order Successful: Your Order ID is :${result1.orderId}`);
