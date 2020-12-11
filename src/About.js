@@ -24,7 +24,11 @@ function About() {
             </ul>
           </div>
           <div>
-            <img className="uerimg" src="Listing_Image_skazsy.jpg"></img>
+            <img
+              className="uerimg"
+              src="Listing_Image_skazsy.jpg"
+              alt="hello"
+            ></img>
           </div>
         </div>
       </div>
