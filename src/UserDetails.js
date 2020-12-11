@@ -44,7 +44,7 @@ function UserDetails() {
       redirect: "follow",
     };
 
-    fetch(`http://localhost:3001/`, requestOptions)
+    fetch(`https://hotel-mnmt.herokuapp.com/`, requestOptions)
       .then((response) => response.text())
       .then((result) => {
         // console.log(JSON.parse(result));
