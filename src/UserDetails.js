@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import "./Projindex.css";
 import "./mycss.css";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import Footer from "./Footer";
 
 function UserDetails() {
-  const { register, handleSubmit, watch, errors } = useForm();
-  const [formErr, setFormErr] = useState("");
+  const { register, handleSubmit, errors } = useForm();
+  // const [formErr, setFormErr] = useState("");
   const [notAvail, setNotAvail] = useState("");
   const [orderId, setOrderId] = useState("");
 

@@ -6,7 +6,7 @@ import About from "./About";
 import Home from "./Home/Home";
 import Availability from "./Availability";
 import Room from "./Room";
-import Footer from "./Footer";
+// import Footer from "./Footer";
 
 function App() {
   return (
